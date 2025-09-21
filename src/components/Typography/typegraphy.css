@@ -1,0 +1,120 @@
+.sidebar {
+  position: fixed;
+  top: 50%;
+  right: 35px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 100;
+  align-items: flex-end;
+}
+
+.sidebar-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: var(--bg-time);
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.sidebar-btn:hover {
+  width: 140px;
+  background-color: var(--highlight-color);
+}
+
+.icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--text-color);
+  z-index: 2;
+}
+
+.btn-text {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  color: #fff;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+/* Show text only on hover */
+.sidebar-btn:hover .btn-text {
+  opacity: 1;
+}
+
+.sidebar-btn:hover .icon {
+  color: #fff;
+}
+
+/* Only active button will be highlighted */
+.sidebar-btn.active {
+  background-color: var(--highlight-color);
+}
+
+.sidebar-btn.active .icon {
+  color: #fff;
+}
+
+[data-theme='dark'] .sidebar {
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+    width: 100%;
+    padding: 8px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--header-bg);
+    box-shadow: 0 0 47px #dedede;
+  }
+}
+
+/* Hover effect only on screens wider than 991px */
+@media (min-width: 991px) {
+  .sidebar-btn:hover {
+    width: 140px;
+    background-color: var(--highlight-color);
+  }
+
+  .sidebar-btn:hover .btn-text {
+    opacity: 1;
+  }
+}
+
+/* On small screens, fix width and prevent hover expand */
+@media (max-width: 991px) {
+  .sidebar-btn {
+    width: 50px !important;
+    /* Prevent expanding */
+  }
+
+  .btn-text {
+    display: none;
+    /* Hide text on small screens */
+  }
+}
