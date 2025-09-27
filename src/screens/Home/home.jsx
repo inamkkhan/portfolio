@@ -20,7 +20,7 @@ const Home = () => {
                 <div className="home-center">
                     <h1 class="heading">
                         <span class="highlight">— I'M INAM KHAN.</span><br />
-                        <span class="white">Software DEVELOPER</span>
+                        <span class="white">SOFTWARE DEVELOPER</span>
                     </h1>
 
                     <p className="description">
